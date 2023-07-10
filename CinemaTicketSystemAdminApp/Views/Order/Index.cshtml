@@ -29,18 +29,20 @@
                     <th scope="col">Customer Name</th>
                     <th scope="col">Number of Tickets</th>
                     <th></th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
                 @for (int i = 0; i < Model.Count; i++)
                 {
                     var item = Model[i];
-                    <tr>
-                        <th scope="row">@(i+1)</th>
-                        <td>@item.User.UserName</td>
-                        <td>@item.TicketOrders.ToList().Count</td>
-                        <td><a asp-action="Details" asp-route-orderId="@item.Id" class="btn btn-info">View Order</a></td>
-                    </tr>
+                <tr>
+                    <th scope="row">@(i+1)</th>
+                    <td>@item.User.UserName</td>
+                    <td>@item.TicketOrders.ToList().Count</td>
+                    <td><a asp-action="Details" asp-route-orderId="@item.Id" class="btn btn-outline-secondary">View Order</a></td>
+                    <td><a asp-action="CreateInvoice" asp-route-orderId="@item.Id" class="btn btn-outline-secondary">Create Invoice</a></td>
+                </tr>
 
                 }
             </tbody>
